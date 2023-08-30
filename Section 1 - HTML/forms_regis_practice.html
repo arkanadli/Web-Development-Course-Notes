@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+        <h1>Race Registration!</h1>
+        <form action="/cow.html">
+            <div>
+                <div>
+                    <label for="first">First Name </label>
+                    <input type="text" id="first" name="first_value" required>
+
+                    <label for="last">Last Name</label>
+                    <input type="text" id="last" name="last_value" required>
+                </div>
+                <p>
+                    Select a Race:
+                </p>
+                <div>
+                    <div>
+                        <input type="radio" name="type_of_race" id="radio1" checked value="funrun">
+                        <label for="radio1">Fun Run 5k</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="type_of_race" id="radio2" value="half">
+                        <label for="radio2">Half Marathon</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="type_of_race" id="radio3" value="full">
+                        <label for="radio3">Full Marathon</label>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" name="email_value" id="email" required>
+                    <label for="password">Password</label>
+                    <input type="password" name="password_value" id="password" required>
+                </div>
+
+                <div>
+                    <label for="age">Select Age Group</label>
+                    <select name="age_value" id="age">
+                        <option value="minor">under 18</option>
+                        <option value="mature">above 18</option>
+                    </select>
+                </div>
+
+            </div>
+            <button type="submit">
+                Register
+            </button>
+        </form>
+    </main>
+</body>
+
+</html>

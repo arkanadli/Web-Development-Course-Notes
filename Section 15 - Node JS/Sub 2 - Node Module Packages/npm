@@ -1,0 +1,14 @@
+npm or Node Package Manager are 2 things basically:
+1. it is bunch of package that other user already code that we can install to use it in our project
+
+2. npm already bundled in our node, so we can call syntax npm to use the method!!
+
+WEBSITE TO VISIT! :
+https://www.npmjs.com/
+
+Install other npm :
+theres 2 different scope, we install it in global(-g) and locally(in the node module folder).
+usually we install it in global when we need npm for syntax in git bash editor.
+
+when the global npm want we use in the current dir, we can use 
+npm link {npm.title} // example npm link cowsay

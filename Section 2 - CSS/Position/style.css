@@ -1,0 +1,75 @@
+* {
+    box-sizing: border-box;
+}
+
+div {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(62, 185, 185);
+    border: 2px solid black;
+    margin: 10px;
+    padding: 0;
+    display: block;
+}
+
+article {
+    color: rgba(0, 0, 0, 0);
+}
+
+.middle {
+    background-color: aquamarine;
+    /* position: static;
+    top: 220px;
+    z-index: 2; */
+}
+
+.relative .middle {
+    position: relative;
+    top: 50px;
+    left: 50px;
+    z-index: 2;
+}
+
+.relative {
+    position: relative;
+}
+
+.middle-absolute {
+    position: absolute;
+    background-color: aquamarine;
+    left: 300px;
+    top: 50px;
+
+}
+
+.absolute {
+    /* position: static; */
+    position: relative;
+    /* position: absolute; */
+}
+
+.fixed .middle {
+    position: fixed;
+    background-color: aquamarine;
+    left: 500px;
+    top: 100px;
+}
+
+.sticky .middle {
+
+    background-color: rgb(45, 136, 106);
+    position: sticky;
+    top: 100px;
+    left: 0px;
+
+}
+
+.sticky {
+    background-color: aqua;
+    position: sticky;
+}
+
+article .content {
+    position: relative;
+    top: 100px;
+}

@@ -1,0 +1,45 @@
+*{
+    padding: 10px;
+}
+#circle button{
+    width: 100px;
+    height: 100px;
+    border-radius: 0;
+    background-color: chartreuse;
+    transition: background-color 1s, border-radius 2s;
+}
+
+#circle button:hover{
+    background-color: darkorange;
+    border-radius: 50%;
+} 
+
+#boxes {
+    border: 1px solid black;
+}
+#boxes div {
+    background-color: aquamarine;
+    margin: 10px 0;
+    width: 50px;
+    height: 50px;
+    transition: margin-left 3s,background-color 1s;
+}
+
+#boxes:hover div {
+    margin-left: 85%;
+    background-color: rgb(243, 49, 156);
+}
+
+#boxes div:nth-of-type(1){
+    transition-timing-function: ease-in;
+}
+
+#boxes div:nth-of-type(2){
+    transition-timing-function:ease-out;
+}
+#boxes div:nth-of-type(3){
+    transition-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+#boxes div:nth-of-type(4){
+    transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+}

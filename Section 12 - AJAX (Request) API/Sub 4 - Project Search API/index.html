@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<style>
+    body {
+        margin: 0;
+        background-color: #28666e;
+    }
+
+    #mainPage {
+        background-color: #7C9885;
+        min-height: 100vh;
+    }
+
+    #mainPage ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        border: 1px solid black;
+        padding-left: 0;
+    }
+
+    #mainPage li {
+        display: flex;
+        flex-direction: column;
+        font-size: 1em;
+        justify-content: start;
+        align-items: center;
+        /* border: 1px solid black; */
+        padding: 20px;
+        box-sizing: border-box;
+        max-width: 500px;
+        margin-left: 0;
+        width: 100%;
+    }
+
+    #mainPage img {
+        width: 100%;
+        max-width: 200px;
+
+    }
+
+    footer {
+        background-color: #033F63;
+        min-height: 200px;
+    }
+</style>
+
+<body>
+    <nav style="display: flex; flex-direction: column; align-items: center; padding-bottom: 20px;">
+        <h1>TV Show Search</h1>
+        <section>
+            <form id="formSearch">
+                <input type="text" placeholder="TV Show Title" name="title">
+                <button>Search</button>
+            </form>
+        </section>
+    </nav>
+    <main>
+        <section>
+            <article id="mainPage">
+            </article>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="app.js"></script>
+</body>
+
+</html>

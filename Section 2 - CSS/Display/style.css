@@ -1,0 +1,48 @@
+div {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    border: 5px solid black;
+    /* before the box stacked to bottom, but after inline block */
+}
+h1 {
+    background-color: tan;
+    border: 1px black solid;
+}
+
+span {
+    width: 200px;
+    height: 100px;
+    display: inline-block;
+    border: 1px solid black;
+    background-color: paleturquoise;
+}
+
+a {
+    display: block;
+    border: 1px solid black;
+    background-color: palegoldenrod;
+}
+article {
+    background-color: tomato;
+    width: 500px;
+    height: 500px;
+    box-sizing: content-box;
+    padding: 0;
+    margin: 0;
+    display: block;
+    
+}
+
+
+aside {
+    margin: 0 auto;
+    width: 50%;
+    height: 50%;
+    background-color:burlywood ;
+    border: 5px solid black;
+    box-sizing:border-box;
+    display: inline-block;
+    content: "";
+}

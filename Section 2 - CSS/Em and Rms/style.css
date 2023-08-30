@@ -1,0 +1,44 @@
+#ems{
+    font-size: 12px;
+    /* the parent font size */
+}
+
+#ems h1{
+    font-size: 3em;
+    /* 3em means 3 * 30px or 3 * current parrent font size */
+    margin:0 1em;
+    /* in this case 1 em margin equal to 3em fontsize, 1em equal to whatever the font size this element have */
+    /* ussualy em in margin to maintain the shape of element, especially in button */
+}
+#ems h2 {
+    font-size: 2em;
+    margin: 0 1em;
+}
+#ems p {
+    font-size: 1em;
+    margin: 0 1em;
+}
+
+#ems ul{
+    font-size: 1.3em;
+}
+/* rems _____________________________________ */
+/* rems is for relatively unit counter depends on root font size, value in html docs */
+/* as we can see in the result, the ul nested font size doesnt look alike as ems does */
+html {
+    font-size: 20px;
+}
+#rems h1 {
+    font-size: 3rem;
+}
+#rems h2 {
+    font-size:2rem;
+}
+
+#rems p {
+    font-size: 1rem;
+}
+
+#rems ul {
+    font-size: 1.3rem;
+}

@@ -1,0 +1,73 @@
+h1 {
+    color: indigo;
+    text-align: center;
+    background-color: azure;
+    text-decoration: underline orange;
+    letter-spacing: 4px;
+    font-size: 34px ;
+}
+
+a {
+    color: brown;
+}
+
+p {
+    font-weight: 400;
+    font-size: 20px;
+    text-decoration:rgba(0, 0, 255, 0.315) wavy underline;
+    font-family: Segoe UI, Futura, sans-serif;
+/* the machine choose first font, but if the machine did not have the font, the next font will be choosen. */
+}
+
+button {
+    font-size: 30px;
+    background-color: aquamarine;
+}
+
+#button2 {
+    background-color: black;
+    /* specific id selector */
+}
+
+.tags {
+    color: blueviolet;
+    /* class selector */
+}
+
+sup a {
+    text-transform: none;
+    text-decoration: none;
+    color: blue;
+    /* selector a in nested sup */
+} 
+
+li + li {
+    background-color: antiquewhite;
+    /* selector for li after li element, not nested, in same index */
+}
+
+p > span {
+    background-color: white;
+    /* selector direct child, only effect span as a direct child of p element */
+}
+
+.feedbacks input[type="password"] {
+    background-color: antiquewhite;
+    /* selector for specific attribute value */
+}
+
+.feedbacks button:hover {
+    background-color: azure;
+}
+
+.feedbacks button:active{
+    background-color: blueviolet;
+}
+
+p::first-letter {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+
+

@@ -1,0 +1,17 @@
+{
+   "type": "module",
+   "name": "project-es6-module",
+   "version": "1.0.0",
+   "description": "Using es6, we cannot use require unless we add more code!",
+   "main": "index.js",
+   "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+   },
+   "author": "Arkan Adli",
+   "license": "ISC",
+   "dependencies": {
+      "colors": "^1.4.0",
+      "franc": "^6.1.0",
+      "langs": "^2.0.0"
+   }
+}

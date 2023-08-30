@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+        <h1>Forms Demo</h1>
+        <!-- use label it has more benefit for click area input -->
+        <!-- atribute name is for the server knows what data sent by the forms -->
+        <form action="/table.html" method="get">
+            <p>
+                <label for="usernameId">Username :</label>
+                <input type="text" id="usernameId" placeholder="type your username" name="username">
+            </p>
+            <p>
+                <label for="password">Password :</label>
+                <input type="password" id="password" placeholder="type your password" name="password">
+            </p>
+            <input type="color">
+            <input type="number" min="0" max="30" placeholder="age">
+            <p>
+                <button type="button">Click!</button>
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </p>
+        </form>
+
+        <h2>Search Bar Google</h2>
+        <!-- in this case we are hijacking google search url, example https://www.google.com/search?q=pizza if the value of the name q is pizza -->
+        <form action="https://www.google.com/search">
+            <input type="text" name="q">
+            <button type="submit">Search</button>
+        </form>
+
+        <h2>More Inputs!</h2>
+        <form action="/birds">
+            <input type="checkbox" name="agree_tos" id="agree">
+            <label for="agree">i agree to everything</label>
+            <!-- radio with same name only can choose 1 option to choose -->
+            <p>
+                <input type="radio" name="size" id="S" value="S">
+                <label for="S">S</label>
+                <input type="radio" name="size" id="M" value="M">
+                <label for="M">M</label>
+                <input type="radio" name="size" id="L" value="L">
+                <label for="L">L</label>
+            </p>
+            <p>
+                <label for="meal">Please Select an Entree</label>
+                <select name="meal-value" id="meal">
+                    <option value="">--Please Choose an Meal Option--</option>
+                    <option value="fish">Fish</option>
+                    <option value="vegetarian">Vegetarian</option>
+                    <option value="steak">Steak</option>
+                </select>
+            </p>
+            <p>
+                <label for="cheese">Amount of Cheese</label>
+                <input type="range" id="cheese" value="24" min="1" max="100" step="3" name="cheese-value">
+            </p>
+            <!-- after submit see what data sent in url of the page ex http://127.0.0.1:5500/birds?agree_tos=on&size=M&meal-value=steak -->
+            <button type="submit">submit</button>
+            <p>
+                <label for="request">Any Special Requests?</label>
+                <br>
+                <textarea name="request-value" id="request" cols="30" rows="5" placeholder="Type your request here!"></textarea>
+            </p>
+        </form>
+
+        <h2>Form validations Demo</h2>
+        <form action="/ducks">
+            <label for="first">Firstname : </label>
+            <input type="text" id="first" name="first-value" required>
+
+            <p>
+                <label for="username">Username : </label>
+                <input type="text" id="username" name="username-value" required minlength="5" maxlength="20">
+            </p>
+            <button>submit</button>
+        </form>
+    </main>
+</body>
+
+</html>

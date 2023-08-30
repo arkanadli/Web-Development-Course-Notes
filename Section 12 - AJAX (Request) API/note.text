@@ -1,0 +1,14 @@
+
+
+==============================================================
+1. API is a Web request interface, what makes our web can talk to other web/database
+2. use hoppscotch.io for testing the API
+3. Some API may have need some query parameters, example :
+    URL:  https://api.tvmaze.com/schedule/web?date=2020-05-29&country=US
+    date : Date On Air
+    country : country On Air
+    The API will offer data depend on what q parameters we request.
+4. API have different type, in End Point API where the web address is only the address
+   we usually will get some html feedback when we request, thats why we need to configure some headers
+   to change the different type of data(JSON what we want) to request.
+   

@@ -1,0 +1,6 @@
+to initiate project type here in the new directory of the project:
+(we are in directory called Project1)
+
+/Project1 $: npm init
+
+in that process you can add details into those project  

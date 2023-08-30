@@ -1,0 +1,9 @@
+WEB CHECK API (works or not)
+===========================================
+https://hoppscotch.io/
+-------------------------------------------
+
+LIST OF API !!
+===========================================
+- https://icanhazdadjoke.com/api
+- https://www.tvmaze.com/api

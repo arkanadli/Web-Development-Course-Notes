@@ -1,0 +1,26 @@
+div {
+    width: 200px;
+    height:290px;
+    margin: 20px;
+    padding:2em;
+    overflow: hidden;
+}
+
+.box1 {
+    background-color: deeppink;
+    border: 5px black solid;
+    box-sizing: border-box;
+    /* box sizing, border box , the width set before calculate the border width too */
+}
+.box2 {
+    background-color: rgb(170, 18, 99);
+    border-radius: 40px;
+    box-sizing: content-box;
+    /* box sizing by defaul is content-box */
+}
+.box3 {
+    background-color: rgb(119, 14, 70);
+    border: 5px black solid;
+    box-sizing: content-box;
+    /* content box, the width box set before not calculate the border, so the border is an additional pixel border */
+}
