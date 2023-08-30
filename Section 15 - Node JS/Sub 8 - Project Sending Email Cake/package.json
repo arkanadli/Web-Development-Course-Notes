@@ -1,0 +1,14 @@
+{
+  "name": "sub-8---project-sending-email-cake",
+  "version": "1.0.0",
+  "description": "Sending Email",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemailer": "^6.9.4"
+  }
+}
