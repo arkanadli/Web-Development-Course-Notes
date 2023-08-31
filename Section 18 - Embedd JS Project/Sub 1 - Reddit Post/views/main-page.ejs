@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="/css/app.css">
+</head>
+
+<style>
+   .postContainer {
+      background-color: #818479;
+      width: 80%;
+      margin: 0 auto;
+      padding: 10px 20px;
+      box-sizing: border-box;
+      border: 1px black solid;
+
+   }
+
+   .post {
+      margin: 50px auto;
+      font-size: 1.4em;
+      border: 2px;
+      width: 80%;
+      border: 2px solid white;
+      padding: 1em;
+      box-sizing: border-box;
+      max-width: 500px;
+   }
+
+   .post img {
+      width: 100%;
+      max-width: 400px;
+      max-height: 300px;
+
+      box-sizing: border-box;
+   }
+
+   .post p {
+      display: inline;
+   }
+
+   .post a {
+      display: inline-block;
+      margin-top: -15px;
+      padding: 15px;
+      text-decoration: none;
+   }
+
+   h5 {
+      font-weight: 400;
+   }
+</style>
+
+<body>
+   <h1>NAVBAR</h1>
+
+   <h1>
+      <%= `Search for post : ${name}` %>
+   </h1>
+   <h2>
+      <%= `Subscribers post : ${subscribers}` %>
+   </h2>
+   <h3>
+      <%= `Result of : ${description}` %>
+   </h3>
+   <hr>
+
+   <main>
+      <article class="postContainer">
+         <h1>Post :</h1>
+         <% posts.forEach(element=> { %>
+            <div class="post">
+               <h5>
+                  Title : <%= element.title %>
+               </h5>
+               <p>author: </p>
+               <a href="/<%= element.author %>">
+
+                  <%= element.author %>
+               </a>
+               <% if (element.img) { %>
+                  <img src="<%= element.img %>" alt="Image">
+                  <% } %>
+            </div>
+            <% }) %>
+      </article>
+   </main>
+</body>
+
+</html>
