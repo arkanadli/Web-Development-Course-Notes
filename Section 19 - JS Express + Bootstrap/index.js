@@ -30,7 +30,6 @@ app.get('/cats', (req, res) => {
     res.render('cats', {listOfCats: cats})
 })
 
-
 app.listen(port, () => {
     console.log(`LISTENING ${port}`);
 })
