@@ -1,0 +1,18 @@
+<%- include('partials/header') %>
+
+
+<%- include('partials/navbar') %>
+<h1>Subreddit <%= name %></h1>
+<h2>Subscribers : <%= subscribers %></h2>
+<h3>
+    Description : <%= description %>
+</h3>
+<hr>
+<section>
+    <% for(each of posts){ %>
+    <h1> <%= each.title %> </h1>
+    <p> <%= each.author %> </p>
+    <img src="<%= each.img %>" alt="">
+    <% } %>
+</section>
+<%- include('partials/footer') %>

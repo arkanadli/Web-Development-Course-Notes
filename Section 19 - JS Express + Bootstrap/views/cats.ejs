@@ -1,0 +1,13 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+<h2>List of Cats : </h2>
+<h3>
+    <ul>
+        <% listOfCats.forEach(cat=> { %>
+        <li>
+            <%= cat %>
+        </li>
+        <% }) %>
+    </ul>
+</h3>
+<%- include('partials/footer') %>
