@@ -1,5 +1,9 @@
 const mongoose = require('mongoose');
 
+// :: !!NOTE we must set the methods and virtual before the model initialize
+
+
+
 //connect to mongodb
 mongoose.connect('mongodb://127.0.0.1:27017/shopApp')
     .then((data) => {
@@ -44,6 +48,8 @@ const productSchema = new mongoose.Schema({
     }
 })
 
+
+// create methods for single object
 productSchema.methods.toggleOnSale = function () {
     this.onSale = !this.onSale;
     return this.save(); // because this.save is needed to be async
@@ -52,6 +58,18 @@ productSchema.methods.toggleOnSale = function () {
 productSchema.methods.addCategories = function (cat) {
     this.categories.push(cat);
     return this.save();
+}
+
+// create statics for entire model
+productSchema.statics.filter = function (filter) {
+    if (filter.length == 0) {
+        console.log("FIND ALL DATA, NO FILTER");
+        return this.find();
+    } else if (filter) {
+        console.log("FIND DATA WITH FILTER :");
+        console.log(filter);
+        return this.find({ categories: { $in: filter } })
+    }
 }
 
 const Product = mongoose.model('Product', productSchema);
@@ -64,5 +82,12 @@ const gitRunCommand = async () => {
     console.log(foundProduct);
     await foundProduct.addCategories('Holy Items');
     console.log(foundProduct);
+
 }
-gitRunCommand(); 
+
+const sortFilter = [];
+sortFilter.push('Holy Items');
+sortFilter.push('Rock')
+Product.filter(sortFilter).then(res => { console.log(res) })
+
+// gitRunCommand(); 
