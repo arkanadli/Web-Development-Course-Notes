@@ -65,4 +65,4 @@ const gitRunCommand = async () => {
     await foundProduct.addCategories('Holy Items');
     console.log(foundProduct);
 }
-gitRunCommand();
+gitRunCommand(); 
