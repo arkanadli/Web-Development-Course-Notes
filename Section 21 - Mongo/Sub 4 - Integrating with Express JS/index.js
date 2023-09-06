@@ -1,13 +1,21 @@
 const express = require('express');
-const methodOverride = require('method-override')
-const port = 3000;
+const mongoose = require('mongoose');
+const methodOverride = require('method-override');
 const path = require('path');
 const app = express();
-const mongoose = require('mongoose');
+const port = 3000;
 
-const Product = require('./models/product')
+// setting config readable usage
+app.use(express.urlencoded({ extended: true })); // to compile the request data for post method
+app.use(express.json()); // to compile the request data for post method
+app.use(methodOverride('_method')); // enable patch, put, delete method
 
-//connect to mongodb
+// setting config for project usage
+app.set('view engine', 'ejs'); // setting engine to be viewing ejs file 
+app.set('views', path.join(__dirname, 'views')) // direct views to our views folder with absolute path
+app.use(express.static(path.join(__dirname, 'public'))) // so we can use public folder in our ejs
+
+// connect database
 mongoose.connect('mongodb://127.0.0.1:27017/farmStand')
     .then((data) => {
         console.log("Connected into Databases");
@@ -16,20 +24,13 @@ mongoose.connect('mongodb://127.0.0.1:27017/farmStand')
         console.log('Failed To Connect');
         console.log(err);
     });
+    
+// !!--- CODE ABOVE IS BASIC SETUP--!!
 
+
+// !! Import Models
+const Product = require('./models/product')
 const categories = ['vegetable', 'dairy', 'fruit', 'fungi'];
-
-
-// WAJIB!!!
-app.use(express.urlencoded({ extended: true })); // to compile the request data for post method
-app.use(express.json()); // to compile the request data for post method
-app.use(methodOverride('_method'));
-
-// setting config for project usage
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'))
-app.use(express.static(path.join(__dirname, 'public'))) // so we can use public folder in our ejs
-//
 
 // SHOW ALL or BY SOME CATEGORIES
 app.get('/products', async (req, res) => {
