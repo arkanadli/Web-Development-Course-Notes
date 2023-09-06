@@ -7,10 +7,10 @@ const database = require('./data.json')
 
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, '/views'))
-app.use(express.static('public'))
+app.use(express.static(path.join(__dirname, '/public')))
 
 app.get('/', (req, res) => {
-    res.render('home')
+    res.render('partAnother/home')
 })
 
 app.get('/r/:subreddit', (req, res) => {
@@ -21,13 +21,13 @@ app.get('/r/:subreddit', (req, res) => {
     if (data) {
         res.render('subreddit', { ...data })
     } else {
-        res.render('subNotFound', {subreddit})
+        res.render('subNotFound', { subreddit })
     }
 })
 
 app.get('/cats', (req, res) => {
     const cats = ['blue', 'colt', 'timmy'];
-    res.render('cats', {listOfCats: cats})
+    res.render('cats', { listOfCats: cats })
 })
 
 app.listen(port, () => {

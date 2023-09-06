@@ -17,7 +17,7 @@ const personSchema = new mongoose.Schema({
 // The meaning of the code below is so that we can access the Arkan.fullname (or the atributes that now even in the database!)
 // We can use it for adrress, name, and etc
 personSchema.virtual('fullName').get(function () {
-    return `${this.first} ${this.last}`
+    return `${this.first} ${this.last}` 
 })
 
 // Middle Were SEctioN!

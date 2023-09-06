@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Form</title>
+</head>
+
+<body>
+    <h1>Create New Product</h1>
+    <form method="POST" action="/products/<%= product._id %>?_method=PUT">
+        <label for="name">Name of Product : </label>
+        <input type="text" value="<%= product.name  %>" name="name" id="name" placeholder="name" required>
+        <br>
+        <br>
+        <label for="price">Price of Product: </label>
+        <input type="number" value="<%= product.price  %>" step=".01" name="price" id="price" placeholder="price"
+            required min="0">
+        <br>
+        <br>
+        <label for="category">Category of Product: </label>
+        <select name="category" id="category" required>
+            <% for (let category of categories){ %>
+            <option value="<%= category %>" <%= product.category === category ? 'selected' : '' %>><%= category %>
+            </option>
+            <% } %>
+        </select>
+        <br>
+        <br>
+        <button>Update</button>
+    </form>
+    <a href="/products">Back</a>
+</body>
+
+</html>
