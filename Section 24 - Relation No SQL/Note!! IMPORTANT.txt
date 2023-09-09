@@ -1,0 +1,6 @@
+
+To improve your mongo db databases :
+https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design
+
+To relearn in video :
+https://www.udemy.com/course/the-web-developer-bootcamp/learn/lecture/22117210#questions

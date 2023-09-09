@@ -21,11 +21,6 @@ const appError = require('./appError')
 
 
 
-
-
-
-
-
 // setting config readable usage
 app.use(express.urlencoded({ extended: true })); // to compile the request data for post method
 app.use(express.json()); // to compile the request data for post method
