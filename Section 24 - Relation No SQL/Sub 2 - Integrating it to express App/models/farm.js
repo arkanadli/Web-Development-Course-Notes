@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Product = require('./product')
 const { Schema } = mongoose;
 
 const farmSchema = new Schema({
@@ -14,11 +15,21 @@ const farmSchema = new Schema({
         required: [true, 'Email Required!']
 
     },
-    Products: [{
-        type: Schema.Types.ObjectId, ref: 'Product'
+    products: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Product'
     }]
 })
 
-const Farm = new mongoose.model('Farm', farmSchema);
+farmSchema.post('findOneAndDelete', async function (farm) {
+    // farm.products = [31232141,321432,543543]
+    if (farm.products.length) {
+        // if the current deleted farm have a products, it will delete the products in those farm
+        const respo = await Product.deleteMany({ _id: { $in: farm.products } }) // where id is an id in farm.products[]
+        console.log(respo);
+    }
+})
+
+const Farm = mongoose.model('Farm', farmSchema);
 
 module.exports = Farm;

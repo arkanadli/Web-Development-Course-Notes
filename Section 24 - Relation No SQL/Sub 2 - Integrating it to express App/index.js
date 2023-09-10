@@ -4,7 +4,7 @@ const methodOverride = require('method-override');
 const path = require('path');
 const app = express();
 const port = 3000;
-
+__dirname = path.resolve();
 // setting config readable usage
 app.use(express.urlencoded({ extended: true })); // to compile the request data for post method
 app.use(express.json()); // to compile the request data for post method
@@ -16,7 +16,7 @@ app.set('views', path.join(__dirname, 'views')) // direct views to our views fol
 app.use(express.static(path.join(__dirname, 'public'))) // so we can use public folder in our ejs
 
 // connect database
-mongoose.connect('mongodb://127.0.0.1:27017/farmStand')
+mongoose.connect('mongodb://127.0.0.1:27017/farmStandRelation')
     .then((data) => {
         console.log("Connected into Databases");
     })
@@ -24,14 +24,72 @@ mongoose.connect('mongodb://127.0.0.1:27017/farmStand')
         console.log('Failed To Connect');
         console.log(err);
     });
-    
+
 // !!--- CODE ABOVE IS BASIC SETUP--!!
 
 
 // !! Import Models
 const Product = require('./models/product')
+const Farm = require('./models/farm');
+const { get } = require('http');
 const categories = ['vegetable', 'dairy', 'fruit', 'fungi'];
 
+
+//ROUTES FARMS
+// Show all 
+app.get('/farms', async (req, res) => {
+    const listFarms = await Farm.find({});
+    res.render('farms/index', { listFarms });
+})
+
+// create 
+app.get('/farms/create', (req, res) => {
+    res.render('farms/create');
+})
+
+app.post('/farms', async (req, res) => {
+    const farm = new Farm(req.body);
+    await farm.save();
+    res.redirect('/farms')
+})
+
+// Show all products that farm have
+app.get('/farms/:id', async (req, res) => {
+    const { id } = req.params;
+    const farm = await Farm.findById(id).populate('products');
+    res.render('farms/show', { farm })
+})
+
+// Farm ADD Products
+app.get('/farms/:id/products/create', (req, res) => {
+    const { id } = req.params;
+    res.render('products/create', { categories, id })
+})
+
+app.post('/farms/:id/products', async (req, res) => {
+    const { id } = req.params;
+    const farm = await Farm.findById(id);
+    const product = new Product(req.body);
+    farm.products.push(product);
+    product.farm = farm;
+    await farm.save();
+    await product.save();
+    res.redirect(`/farms/${id}`)
+})
+
+// Delete farms and call middleware
+app.delete('/farms/:id', async (req, res) => {
+    const { id } = req.params;
+    await Farm.findByIdAndDelete(id);
+    res.redirect('/farms');
+})
+
+
+
+
+
+
+// ROUTES PRODUCTS
 // SHOW ALL or BY SOME CATEGORIES
 app.get('/products', async (req, res) => {
     // we make it to async so that the function can await the query from the database
@@ -63,7 +121,7 @@ app.post('/products', async (req, res) => {
 app.get('/products/:id', async (req, res) => {
     const { id } = req.params;
     // console.log(id);
-    const product = await Product.findById(id);
+    const product = await Product.findById(id).populate('farm');
     // console.log(product);
     res.render('products/show', { product })
 })

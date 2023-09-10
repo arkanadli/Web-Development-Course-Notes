@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="./../script.js"></script>
-    <link rel="stylesheet" href="./../style.css">
+    <script type="text/javascript" src="../script.js"></script>
+    <link rel="stylesheet" href="../style.css">
     <!-- link href perlu disejajarkan dengan home.ejs agar path akses ke public sama -->
     <title><%= product.name %></title>
 </head>
@@ -17,13 +17,14 @@
         <li>Price : <%= product.price %></li>
         <li>Category : <a href="/products?category=<%= product.category %>"><%= product.category %> </a></li>
     </ul>
+    <h3>Belongs to : <a href="/farms/<%= product.farm._id %>"><%= product.farm.name %></a></h3>
     <a href="/products">All Products</a>
     <a href="/products/<%= product._id %>/edit"> Edit </a>
     <form id="form-delete" method="POST" action="/products/<%=product._id %>?_method=DELETE">
-        <INPUT type="button" value='Delete' name='delete' onClick='confirmSubmit()'>
+        <button>Delete</button>
     </form>
 
-    
+
 </body>
 
 </html>
