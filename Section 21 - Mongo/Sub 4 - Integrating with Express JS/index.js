@@ -4,6 +4,8 @@ const methodOverride = require('method-override');
 const path = require('path');
 const app = express();
 const port = 3000;
+const flash = require('connect-flash'); // connect to package connect flash
+
 
 // setting config readable usage
 app.use(express.urlencoded({ extended: true })); // to compile the request data for post method
@@ -15,6 +17,9 @@ app.set('view engine', 'ejs'); // setting engine to be viewing ejs file
 app.set('views', path.join(__dirname, 'views')) // direct views to our views folder with absolute path
 app.use(express.static(path.join(__dirname, 'public'))) // so we can use public folder in our ejs
 
+//setting config flash 
+app.use(flash())
+
 // connect database
 mongoose.connect('mongodb://127.0.0.1:27017/farmStand')
     .then((data) => {
@@ -24,13 +29,16 @@ mongoose.connect('mongodb://127.0.0.1:27017/farmStand')
         console.log('Failed To Connect');
         console.log(err);
     });
-    
+
 // !!--- CODE ABOVE IS BASIC SETUP--!!
 
 
 // !! Import Models
 const Product = require('./models/product')
 const categories = ['vegetable', 'dairy', 'fruit', 'fungi'];
+
+
+
 
 // SHOW ALL or BY SOME CATEGORIES
 app.get('/products', async (req, res) => {
@@ -55,6 +63,7 @@ app.post('/products', async (req, res) => {
     console.log(req.body);
     await product.save();
     console.log(product);
+    req.flash('success', 'New Products Created')
     res.redirect('/products')
 })
 
