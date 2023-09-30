@@ -8,7 +8,7 @@ const UserModel = require('./models/UserModel')
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json()); // to compile the request data for post method
 app.set('view engine', 'ejs');
-app.set('views', 'views'); 
+app.set('views', 'views');
 app.use(session({ secret: 'shouldbeinenvVariable' }))
 
 mongoose.connect('mongodb://127.0.0.1:27017/HashDemo')
